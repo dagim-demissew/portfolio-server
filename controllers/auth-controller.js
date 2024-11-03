@@ -13,7 +13,7 @@ const authenticate = async (req, res) => {
       .get();
 
     if (adminSnapshot.empty) {
-      return res.status(500).json({ message: "invalid credentials!" });
+      return res.status(401).json({ message: "invalid credentials!" });
     }
 
     const adminData = adminSnapshot.docs[0].data();
